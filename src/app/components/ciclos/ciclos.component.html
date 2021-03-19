@@ -1,0 +1,33 @@
+<div class="row">
+    <h3>Los ciclos tecnológicos son</h3>
+
+            <div class="col">
+                <h3>DAM</h3>
+                Asignaturas:
+                <ul class="list-group m-4">
+                    <li class="list-group-item" *ngFor="let item of signaturesDAM">{{item.nombre| pipeTexto}}</li>
+                </ul>
+            </div>
+
+            <div class="col">
+                <h3>DAW</h3>
+                Asignaturas:
+                <ul class="list-group m-4">
+                    <li class="list-group-item" *ngFor="let item of signaturesDAW">{{item.nombre}}</li>
+                </ul>
+            </div>
+
+    <div class="row">
+        <div class="col" *ngFor="let item of conocimientos" >
+            <div class="card" style="width: 18rem;">
+                <img [src]="item.imagen | pipeImages" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.nombre}}{{item.curso}}</h5>
+                  <button  class="btn btn-primary" (click)="pasarDatos(item.curso,item.nombre)">
+                      Ver detalle</button>
+                </div>
+              </div>
+        </div>
+    </div>
+
+</div>

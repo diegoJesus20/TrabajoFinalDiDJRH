@@ -1,0 +1,48 @@
+<div class="row">
+    
+    <div class="col">
+        <p class="text-center">Filtrar por Nombre:</p>
+        <input #inputNombre class="form-control" type="text" placeholder="introduce el nombre de la asignatura">
+    </div>
+
+    <div class="col">
+        <p class="text-center">Filtrar por ciclo:</p>
+        <input #inputCiclo class="form-control" type="text" placeholder="Selecciona un ciclo">
+    </div>
+
+    <div class="col">
+        <p class="text-center">Filtrar por conocimiento:</p>
+        <input #inputConocimiento class="form-control" type="text" placeholder="Selecciona un conocmiento">
+    </div>
+
+    <button class="btn btn-primary m-4" (click)="filtrarDatos(inputNombre.value,inputCiclo.value)">Filtrar</button>
+
+    <h1>
+        Los resultados de búsquedas son:
+    </h1>
+
+    <div class="alert alert-primary" role="alert">
+        El número de asignaturas que cumplen el filtro es de: {{count}}
+    </div>
+
+    <div class="row m-4">
+        <div class="col" *ngFor="let item of conocimientos" >
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h1 class="card-title">{{item.nombre}}</h1>
+                  <p>Profesor: {{item.profesor}}</p>
+                  <p>Ciclo: {{item.ciclo}}</p>
+                  <p>Curso: {{item.curso}}</p>
+                </div>
+                <div class="row">
+                    <img *ngFor="let item of item.conocimientos" 
+                    [src]="item.imagen |pipeImages"
+                    class="col-2 m-4"
+                    alt="...">
+                </div>
+
+              </div>
+            </div>
+    </div>
+    
+</div>

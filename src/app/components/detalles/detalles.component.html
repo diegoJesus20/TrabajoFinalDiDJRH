@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-3">
+        <img [src]="imagen | pipeImages" alt="...">
+        <h1 class="text-center">{{ciclo}}{{curso}}</h1>
+        <ul class="list-group m-4">
+            <h3 >Conocimientos necesarios</h3>
+            <ng-container *ngFor="let item of conocimientos">
+                <li *ngFor="let itemItem of item">{{itemItem.nombre}}</li>
+            </ng-container>
+        </ul>
+    </div>
+
+    <div class="col">
+        <h2>Las asignaturas del ciclo son:</h2>
+        <div class="row">
+            <div class="col" *ngFor="let item of datos " >
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h1 class="card-title">{{item.nombre}}</h1>
+                      <p>Profesor: {{item.profesor}}</p>
+                      <p>Ciclo: {{ciclo}}</p>
+                      <p>Curso: {{curso}}</p>
+                    </div>
+                    <div class="row">
+                        <img *ngFor="let item of item.conocimientos" 
+                        [src]="item.imagen | pipeImages"
+                        class="col-2 m-4"
+                        alt="...">
+                    </div>
+    
+                  </div>
+                </div>
+        </div>
+    </div>
+</div>
